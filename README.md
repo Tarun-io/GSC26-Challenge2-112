@@ -87,6 +87,4 @@ parser.py # YAML run block extractor
 models.py # Shared data models
 config/
 security_policy.yml # Declarative security rules (sources, sinks, sanitizers)
-## Disclosure
-This project uses Claude (Anthropic) for architectural guidance, code review, and patch generation suggestions. All core detection logic — the taint engine, graph builder, 7-gate tribunal, and cross-component scanner — was designed and implemented by the team.
-EOF
+
