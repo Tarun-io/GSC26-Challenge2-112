@@ -1,0 +1,36 @@
+# config/security_policy.yml
+# ---------------------------------------------------------
+# TIER 2: DECLARATIVE SECURITY POLICY
+# The Python engine will read this file to determine what 
+# constitutes a threat. No hardcoding in the parser!
+# ---------------------------------------------------------
+
+# The sources of untrusted "Glowing Green Paint"
+sources:
+  - "__GH_CTX_"
+  - "github.event"
+  - "curl"
+  - "wget"
+  - "Invoke-WebRequest"
+
+# The Detonators (Execution Sinks)
+sinks:
+  - "./"
+  - "bash"
+  - "sh"
+  - "eval"
+  - "chmod +x"
+
+sanitizers:
+  - "tr -d"
+  - "sed"
+  
+# The Transport Trucks (Data leaving the environment)
+trucks:
+  - "upload"
+  - "cp"
+
+# Safe commands to ignore (Prevents False Positives)
+ignore:
+  - "cat"
+  - "echo"
